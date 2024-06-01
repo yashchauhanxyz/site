@@ -1,10 +1,11 @@
 import React from 'react'
+import { Route, Routes,  } from 'react-router-dom'
+import AnomalyList from '../components/core/AdminDashboard/AnomalyList'
 
 const AdminDashboard = () => {
   return (
-    <div>
-      admin dashboard
-    </div>
+    <div>admin dashbaord</div>
+  
   )
 }
 
