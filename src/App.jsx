@@ -4,10 +4,9 @@ import Navbar from "./components/common/Navbar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import AdminDashboard from "./pages/AdminDashboard";
 import UserDashboard from "./pages/UserDashboard";
-import AnomalyList from "./components/core/AdminDashboard/AnomalyList";
-import EditTable from "./components/core/AdminDashboard/EditTable";
+import AnomalyList from "./pages/AnomalyList";
+import EditTable from "./pages/EditTable";
 
 function App() {
   return (
@@ -18,8 +17,6 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/SignupPage" element={<SignupPage />} />
-          <Route path="/admindashboard" element={<AdminDashboard />}/>
-          {/* meri ma ki choot */}
           <Route path="/AdminDashboard/AnomalyList" element={<AnomalyList />} />
           <Route path="/AdminDashboard/EditTable" element={<EditTable />} />
           <Route path="/UserDashboard" element={<UserDashboard />} />
