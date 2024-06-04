@@ -1,8 +1,25 @@
-# React + Vite
+import React, { useState } from 'react';
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+const Dropdown = () => {
+  const [selectedOption, setSelectedOption] = useState('');
 
-Currently, two official plugins are available:
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  return (
+    <div>
+      <label htmlFor="dropdown">Choose an option:</label>
+      <select id="dropdown" value={selectedOption} onChange={handleSelectChange}>
+        <option value="" disabled>Select an option</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  );
+};
+
+export default Dropdown;
