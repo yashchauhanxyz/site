@@ -70,6 +70,7 @@ export const SlidingTabBar = () => {
 
 
 import React, { useState } from 'react';
+import './styles.css'; // Make sure to create and import this CSS file
 
 const allTabs = [
   {
@@ -94,13 +95,17 @@ export const SimpleTabBar = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
-    <div className="flex-row relative mx-auto flex h-12 rounded-3xl border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+    <div className="relative mx-auto flex h-12 rounded-3xl border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+      <div 
+        className="absolute h-10 w-24 bg-gray-200/30 rounded-full transition-transform duration-300 ease-in-out" 
+        style={{ transform: `translateX(${activeTabIndex * 100}%)` }} 
+      />
       {allTabs.map((tab, index) => (
         <button
           key={tab.id}
           className={`${
-            activeTabIndex === index ? 'bg-gray-200/30' : 'hover:text-neutral-300'
-          } my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white`}
+            activeTabIndex === index ? 'text-neutral-100' : 'hover:text-neutral-300'
+          } relative my-auto z-10 cursor-pointer select-none rounded-full px-4 text-center font-light text-white transition duration-300 ease-in-out`}
           onClick={() => setActiveTabIndex(index)}
         >
           {tab.name}
