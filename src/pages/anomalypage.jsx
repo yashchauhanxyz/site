@@ -1,4 +1,6 @@
-let allTabs = [
+import React, { useRef, useState, useEffect } from 'react';
+
+const allTabs = [
   {
     id: "home",
     name: "Home",
@@ -18,8 +20,8 @@ let allTabs = [
 ];
 
 export const SlidingTabBar = () => {
-  const tabsRef = useRef<(HTMLElement | null)[]>([]);
-  const [activeTabIndex, setActiveTabIndex] = useState<number | null>(null);
+  const tabsRef = useRef([]);
+  const [activeTabIndex, setActiveTabIndex] = useState(null);
   const [tabUnderlineWidth, setTabUnderlineWidth] = useState(0);
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
 
@@ -29,7 +31,7 @@ export const SlidingTabBar = () => {
     }
 
     const setTabPosition = () => {
-      const currentTab = tabsRef.current[activeTabIndex] as HTMLElement;
+      const currentTab = tabsRef.current[activeTabIndex];
       setTabUnderlineLeft(currentTab?.offsetLeft ?? 0);
       setTabUnderlineWidth(currentTab?.clientWidth ?? 0);
     };
@@ -50,10 +52,10 @@ export const SlidingTabBar = () => {
 
         return (
           <button
-            key={index}
+            key={tab.id}
             ref={(el) => (tabsRef.current[index] = el)}
             className={`${
-              isActive ? `` : `hover:text-neutral-300`
+              isActive ? '' : 'hover:text-neutral-300'
             } my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white`}
             onClick={() => setActiveTabIndex(index)}
           >
