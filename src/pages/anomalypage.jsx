@@ -66,3 +66,46 @@ export const SlidingTabBar = () => {
     </div>
   );
 };
+
+
+
+import React, { useState } from 'react';
+
+const allTabs = [
+  {
+    id: "home",
+    name: "Home",
+  },
+  {
+    id: "blog",
+    name: "Blog",
+  },
+  {
+    id: "projects",
+    name: "Projects",
+  },
+  {
+    id: "arts",
+    name: "Arts",
+  },
+];
+
+export const SimpleTabBar = () => {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+
+  return (
+    <div className="flex-row relative mx-auto flex h-12 rounded-3xl border border-black/40 bg-neutral-800 px-2 backdrop-blur-sm">
+      {allTabs.map((tab, index) => (
+        <button
+          key={tab.id}
+          className={`${
+            activeTabIndex === index ? 'bg-gray-200/30' : 'hover:text-neutral-300'
+          } my-auto cursor-pointer select-none rounded-full px-4 text-center font-light text-white`}
+          onClick={() => setActiveTabIndex(index)}
+        >
+          {tab.name}
+        </button>
+      ))}
+    </div>
+  );
+};
