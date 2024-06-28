@@ -1,5 +1,1 @@
-const originalDate = new Date(member.fee_paid_date);
-    const year = originalDate.getFullYear();
-    const month = ('0' + (originalDate.getMonth() + 1)).slice(-2); // Month is zero-based, so we add 1 and pad with '0' if necessary
-    const day = ('0' + originalDate.getDate()).slice(-2); // Pad with '0' if necessary
-    const formattedDateString = `${year}-${month}-${day}`;
+Entitlement anomalies occur when a risk tier assignment is incorrect, or when a permission is incorrectly mapped to a risk tier. These anomalies can also arise from an incorrect PBL (description of the entitlement).Accepting an anomaly means agreeing with the proposed change. Declining an anomaly indicates that you don't agree with the proposed changes, meaning the entitlement was not, in fact, an anomaly
